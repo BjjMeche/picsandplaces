@@ -36,12 +36,10 @@ function grabInstaPics(lat, lng, map){
     dataType: "jsonp",
     type: "GET",
   }).done(function(data){
-    console.log(data)
-
     mediaResponseData = data
     var data_length = data.data.length
     for (var i = 0; i < data_length; i++) {
-      $("#pics").append("<a href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+      $("#pics").append("<a href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url.replace("http","https") + "'></img></a>");
     }
     displayInstaPics(mediaResponseData,map)
   }).fail(function(){
@@ -50,11 +48,10 @@ function grabInstaPics(lat, lng, map){
 };
 
 function displayInstaPics(mediaResponseData,map){
-  console.log(mediaResponseData)
   for (var i = 0; i< mediaResponseData["data"].length; i++){
     var instaLat = mediaResponseData["data"][i]["location"]["latitude"]
     var instaLng = mediaResponseData["data"][i]["location"]["longitude"]
-    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"]
+    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"].replace("http","https")
     var formatedInstaData = latLngImg(instaLat,instaLng,instaImg)
     var marker = new google.maps.Marker({
       position: formatedInstaData[0],
