@@ -3,30 +3,42 @@ html, body {
   width:100%;
   margin: 0;
   padding: 0;
+  background-color: #e5e5e5;
 }
 
 #map-container {
  border-color: #fff;
- border-style: solid;
- box-shadow: 2px 2px 10px #B1B1B1;
- border-width: 7px;
+ /*border-style: solid;*/
+ /*box-shadow: 2px 2px 10px #B1B1B1;*/
+ /*border-width: 7px;*/
  padding-bottom:4em;
 }
 
 #map-canvas{
   height: 30em;
   width: 60em;
-  margin-top:50px;
+  margin-top:30px;
   margin-left:auto;
   margin-right:auto;
 }
 
 #pics{
-  background-color: #c8cbce;
+  background-color: #dbdbdb;
+  box-shadow: 2px 2px 10px #B1B1B1;
 }
 
 img{
   display:inline-block;
-  padding: 4px .6% 4px .6%;
-  width:32%;
+  padding: 4px .6% 4px .8%;
+  width:23.5%;
+}
+
+#pac-input{
+  width: 250px;
+}
+
+#title{
+  text-align: center;
+  font-family: 'Tangerine', serif;
+  font-size: 48px;
 }

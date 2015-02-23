@@ -1,8 +1,10 @@
+<h1 id = "title">picsandplaces</h1>
 <div id="map-container">
-  <div id="searchMap"></div>
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
   <div id="map-canvas"></div>
 </div>
-<div id="pics">
-</div>
-<input id="searchTextField" type="text" size="50">
-<!-- <%= javascript_tag "initialize()" %> -->
+<div id="pics"></div>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDRrlwwf_E_gKpDc8b13No-F2sdH9F9h_s&libraries=places">
+  </script>
+<%= javascript_tag "initialize()" %>
