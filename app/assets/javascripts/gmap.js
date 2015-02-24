@@ -18,11 +18,13 @@ function initialize() {
     var places = searchBox.getPlaces();
     lat = places[0]["geometry"]["location"]["k"]
     lng = places[0]["geometry"]["location"]["D"]
-    return grabInstaPics(lat,lng,map)
+    placeName=places[0]["name"]
+    console.log(places)
+    return grabInstaPics(lat,lng,map,placeName)
   })
 };
 
-function grabInstaPics(lat, lng, map){
+function grabInstaPics(lat, lng, map, placeName){
   var client_id = "44bc6fcf9a344b4ba7f7a5abc8540ba6"
   var lat = lat
   var lng = lng
@@ -37,9 +39,19 @@ function grabInstaPics(lat, lng, map){
     type: "GET",
   }).done(function(data){
     mediaResponseData = data
+    $("#pics-container").append("<div id='pics-location'><h3>" + placeName + "</h3></div>")
     var data_length = data.data.length
     for (var i = 0; i < data_length; i++) {
-      $("#pics").append("<a href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url.replace("http","https") + "'></img></a>");
+    // var instaDescription = (data["data"][i]["caption"]["text"])
+    var instaDescription
+    // console.log(data["data"])
+    // console.log(data["data"][i]["caption"].hasOwnProperty["text"])
+    if (data["data"][i]["caption"] == null){
+      instaDescription = ""
+    }else{
+      instaDescription = data["data"][i]["caption"]["text"]
+    }
+      $("#pics-container").append("<div id='pics-inner'><div id='pics'><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.standard_resolution.url.replace("http","https") + "'></img></a><div id='pic-description'>" +instaDescription +"</div></div></div>");
     }
     displayInstaPics(mediaResponseData,map)
   }).fail(function(){
