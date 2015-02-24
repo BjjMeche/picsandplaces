@@ -1,4 +1,3 @@
-// (function(){
 function initialize() {
   var lat = 37.765
   var lng = -122.4167
@@ -19,7 +18,6 @@ function initialize() {
     lat = places[0]["geometry"]["location"]["k"]
     lng = places[0]["geometry"]["location"]["D"]
     placeName=places[0]["name"]
-    console.log(places)
     return grabInstaPics(lat,lng,map,placeName)
   })
 };
@@ -42,10 +40,7 @@ function grabInstaPics(lat, lng, map, placeName){
     $("#pics-container").append("<div id='pics-location'><h3>" + placeName + "</h3></div>")
     var data_length = data.data.length
     for (var i = 0; i < data_length; i++) {
-    // var instaDescription = (data["data"][i]["caption"]["text"])
     var instaDescription
-    // console.log(data["data"])
-    // console.log(data["data"][i]["caption"].hasOwnProperty["text"])
     if (data["data"][i]["caption"] == null){
       instaDescription = ""
     }else{
@@ -81,4 +76,3 @@ function displayInstaPics(mediaResponseData,map){
     return ([{ lat: instaLat, lng: instaLng}, map, instaImg])
   }
 };
-// })();
