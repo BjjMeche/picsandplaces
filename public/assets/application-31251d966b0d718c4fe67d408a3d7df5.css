@@ -1,0 +1,109 @@
+/* line 1, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fcfcfc;
+}
+
+/* line 9, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#map-container {
+  border-color: #fff;
+  padding-bottom: 1em;
+}
+
+/* line 14, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#map-canvas {
+  height: 27.5em;
+  width: 60em;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 23, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pics-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 28, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pics {
+  background-color: #545454;
+  box-shadow: 2px 2px 10px #B1B1B1;
+  padding-right: 5px;
+  float: left;
+  width: 99.5%;
+}
+
+/* line 36, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pics-inner {
+  width: 49%;
+  padding-left: 5px;
+  display: inline-block;
+}
+
+/* line 42, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pics-location {
+  text-align: center;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 30px;
+}
+
+/* line 48, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pic-description {
+  font-family: 'Advent Pro', serif;
+  max-height: 200px;
+  overflow: auto;
+  font-size: 19px;
+  color: white;
+  margin: 1em;
+  padding-left: 15px;
+}
+
+/* line 58, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+img {
+  float: left;
+  padding: 6px 1% 6px .8%;
+  width: 40%;
+}
+
+/* line 64, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#pac-input {
+  width: 250px;
+}
+
+/* line 68, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#title {
+  text-align: center;
+  font-family: 'Tangerine', serif;
+  font-size: 52px;
+}
+
+/* line 74, /Users/franks/Desktop/picsandplaces/picsandplaces/app/assets/stylesheets/maps.css.scss */
+#palm-leaves {
+  position: absolute;
+  transform: rotate(24deg);
+  left: 50.5%;
+  top: 18px;
+  width: 50px;
+  height: 50px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
