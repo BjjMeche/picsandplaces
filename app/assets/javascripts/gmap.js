@@ -1,6 +1,6 @@
 function initialize() {
-  var lat = 37.765
-  var lng = -122.4167
+  var lat = 37.768
+  var lng = -122.417
   var mapOptions = {
     center: { lat: lat, lng: lng},
     zoom: 12
