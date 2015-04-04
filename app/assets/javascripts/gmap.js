@@ -40,13 +40,13 @@ function grabInstaPics(lat, lng, map, placeName){
     $("#pics-container").append("<div id='pics-location'><h3>" + placeName + "</h3></div>")
     var data_length = data.data.length
     for (var i = 0; i < data_length; i++) {
-    var instaDescription
-    if (data["data"][i]["caption"] == null){
-      instaDescription = ""
-    }else{
-      instaDescription = data["data"][i]["caption"]["text"]
-    }
-      $("#pics-container").append("<div id='pics-inner'><div id='pics'><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.standard_resolution.url.replace("http","https") + "'></img></a><div id='pic-description'>" +instaDescription +"</div></div></div>");
+      var instaDescription
+      if (data["data"][i]["caption"] == null){
+        instaDescription = ""
+      }else{
+        instaDescription = data["data"][i]["caption"]["text"]
+      }
+      $("#pics-container").append("<div id='pics-inner'><div id='pics'><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.standard_resolution.url + "'></img></a><div id='pic-description'>" +instaDescription +"</div></div></div>");
     }
     displayInstaPics(mediaResponseData,map)
   }).fail(function(){
@@ -58,7 +58,7 @@ function displayInstaPics(mediaResponseData,map){
   for (var i = 0; i< mediaResponseData["data"].length; i++){
     var instaLat = mediaResponseData["data"][i]["location"]["latitude"]
     var instaLng = mediaResponseData["data"][i]["location"]["longitude"]
-    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"].replace("http","https")
+    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"]
     var formatedInstaData = latLngImg(instaLat,instaLng,instaImg)
     var marker = new google.maps.Marker({
       position: formatedInstaData[0],
