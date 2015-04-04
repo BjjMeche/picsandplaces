@@ -11533,10 +11533,9 @@ return jQuery;
   };
 
 }).call(this);
-// (function(){
 function initialize() {
-  var lat = 37.765
-  var lng = -122.4167
+  var lat = 37.768
+  var lng = -122.417
   var mapOptions = {
     center: { lat: lat, lng: lng},
     zoom: 12
@@ -11573,11 +11572,16 @@ function grabInstaPics(lat, lng, map, placeName){
     type: "GET",
   }).done(function(data){
     mediaResponseData = data
-    console.log("herer and " +placeName)
-    $("#pics-location").append("<h3>'" + placeName + "'</h3>")
+    $("#pics-container").append("<div id='pics-location'><h3>" + placeName + "</h3></div>")
     var data_length = data.data.length
     for (var i = 0; i < data_length; i++) {
-      $("#pics").append("<a href='" + data.data[i].link + "'><img src='" + data.data[i].images.standard_resolution.url.replace("http","https") + "'></img></a>");
+      var instaDescription
+      if (data["data"][i]["caption"] == null){
+        instaDescription = ""
+      }else{
+        instaDescription = data["data"][i]["caption"]["text"]
+      }
+      $("#pics-container").append("<div id='pics-inner'><div id='pics'><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.standard_resolution.url + "'></img></a><div id='pic-description'>" +instaDescription +"</div></div></div>");
     }
     displayInstaPics(mediaResponseData,map)
   }).fail(function(){
@@ -11589,7 +11593,7 @@ function displayInstaPics(mediaResponseData,map){
   for (var i = 0; i< mediaResponseData["data"].length; i++){
     var instaLat = mediaResponseData["data"][i]["location"]["latitude"]
     var instaLng = mediaResponseData["data"][i]["location"]["longitude"]
-    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"].replace("http","https")
+    var instaImg = mediaResponseData["data"][i]["images"]["low_resolution"]["url"]
     var formatedInstaData = latLngImg(instaLat,instaLng,instaImg)
     var marker = new google.maps.Marker({
       position: formatedInstaData[0],
@@ -11607,7 +11611,6 @@ function displayInstaPics(mediaResponseData,map){
     return ([{ lat: instaLat, lng: instaLng}, map, instaImg])
   }
 };
-// })();
 (function() {
 
 
